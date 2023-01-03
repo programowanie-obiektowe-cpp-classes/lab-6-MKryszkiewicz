@@ -11,7 +11,7 @@ std::vector< char > foo(std::list< Human >& people)
     // Twoja implementacja tutaj
     using namespace std;
 
-    vector<char>zwierz;
+    vector<char>zwierz(people.size());
 
     transform(
         begin(people), end(people), zwierz.begin(), [](Human&  human)
