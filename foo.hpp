@@ -8,9 +8,21 @@
 
 std::vector< char > foo(std::list< Human >& people)
 {
-    std::vector< char > ret_v(people.size());
-
     // Twoja implementacja tutaj
+    using namespace std;
 
-    return ret_v;
+    vector<char>zwierz;
+
+    transform(
+        begin(people), end(people), zwierz.begin(), [](Human&  human)
+        {
+            human.birthday();
+            if (human.isMonster())
+                return 'n';
+            else
+                return 'y'; 
+        });
+
+    reverse(zwierz.begin(), zwierz.end());
+    return zwierz;
 }
